@@ -24,9 +24,12 @@ El desarrollo continuará en las siguientes semanas para completar la autenticac
 
 ## 📁 Estructura del proyecto
 TFG-TheraGest/
-theragest-backend/ # Código del servidor Spring Boot
-theragest-frontend/ # Código del cliente Angular
-theragest-postman/ # Colección de pruebas y entorno Postman
+├── backend/ # Código del servidor Spring Boot
+│ ├── src/main/java
+│ └── src/main/resources
+├── frontend/ # Código del cliente Angular
+│ ├── src/app
+│ └── angular.json
 
 ## ✅ Funcionalidades actuales (mayo 2025)
 
