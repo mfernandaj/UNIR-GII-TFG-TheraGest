@@ -1,0 +1,47 @@
+
+<h2>{{ esEdicion ? 'Modificar Cita':  'Registrar Nueva Cita'}}</h2>
+
+<form #formCita="ngForm" (ngSubmit)="guardarCita()">
+
+    <label>Paciente:</label>
+    <select [(ngModel)]="cita.paciente.id" name="paciente" required #paciente="ngModel">
+        <option *ngFor="let paciente of pacientes" [value]="paciente.id">
+            {{ paciente.nombre }} {{ paciente.apellidos }}
+        </option>
+    </select>
+    <div *ngIf="paciente.invalid && paciente.touched" style="color:red;">
+        Debes seleccionar un paciente.
+    </div>
+
+    <label>Fecha de la cita:</label>
+    <input type="datetime-local" [(ngModel)]="cita.fechaCita" name="fechaCita" required #fechaCita="ngModel">
+    <div *ngIf="fechaCita.invalid && fechaCita.touched" style="color:red;">
+        La fecha de la cita es obligatoria.
+    </div>
+
+    <label>Motivo:</label>
+    <input type="text" [(ngModel)]="cita.motivo" name="motivo" required #motivo="ngModel">
+    <div *ngIf="motivo.invalid && motivo.touched" style="color:red;">
+        El motivo es obligatorio.
+    </div>
+
+    <label>Teléfono:</label>
+    <input type="text" [(ngModel)]="cita.telefono" name="telefono" required #telefono="ngModel">
+    <div *ngIf="telefono.invalid && telefono.touched" style="color:red;">
+        El teléfono es obligatorio.
+    </div>
+
+    <label>Email:</label>
+    <input type="email" [(ngModel)]="cita.email" name="email" required #email="ngModel">
+    <div *ngIf="email.invalid && email.touched" style="color:red;">
+        El email es obligatorio.
+    </div>
+
+    <label>Observaciones:</label>
+    <input type="text" [(ngModel)]="cita.observaciones" name="observaciones" >
+
+   
+    <button type="submit" [disabled]="formCita.invalid">
+        {{esEdicion ? 'Actualizar Cita': 'Guardar Cita'}}
+    </button>
+</form> 

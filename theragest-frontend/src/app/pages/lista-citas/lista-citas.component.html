@@ -1,0 +1,33 @@
+<h2>Lista de Citas</h2>
+
+<table border="1" cellpadding="5" cellspacing="0">
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Paciente</th>
+      <th>Fecha</th>
+      <th>Motivo</th>
+      <th>Teléfono</th>
+      <th>Email</th>
+      <th>Observaciones</th>
+      <th>Estado</th>
+      <th>Acciones</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let cita of citas">
+      <td>{{ cita.id }}</td>
+      <td>{{ cita.paciente.nombre }} {{ cita.paciente.apellidos }}</td>
+      <td>{{ cita.fechaCita | date:'d \'de\' MMMM \'de\' y, HH:mm':'es-ES' }}</td>
+      <td>{{ cita.motivo }}</td>
+      <td>{{ cita.telefono }}</td>
+      <td>{{ cita.email }}</td>
+      <td>{{ cita.observaciones }}</td>
+      <td>{{ cita.estado }}</td>
+      <td>
+        <button (click)="editarCita(cita.id)">Modificar</button>
+        <button (click)="cancelarCita(cita.id)" [disabled]="cita.estado==='CANCELADA'">Cancelar</button>
+      </td>
+    </tr>
+  </tbody>
+</table>

@@ -1,0 +1,33 @@
+<h2>Registrar Paciente</h2>
+
+<form #formPaciente="ngForm" (ngSubmit)="guardarPaciente()">
+
+  <label>Nombre:</label>
+  <input type="text" name="nombre" [(ngModel)]="paciente.nombre" required #nombre="ngModel">
+  <div *ngIf="nombre.invalid && nombre.touched" style="color: red;">
+    El nombre es obligatorio.
+  </div>
+
+  <label>Apellidos:</label>
+  <input type="text" name="apellidos" [(ngModel)]="paciente.apellidos" required #apellidos="ngModel">
+  <div *ngIf="apellidos.invalid && apellidos.touched" style="color: red;">
+    Los apellidos son obligatorios.
+  </div>
+
+  <label>Teléfono:</label>
+  <input type="text" name="telefono" [(ngModel)]="paciente.telefono" required #telefono="ngModel">
+  <div *ngIf="telefono.invalid && telefono.touched" style="color: red;">
+    El teléfono es obligatorio.
+  </div>
+
+  <label>Email:</label>
+  <input type="email" name="email" [(ngModel)]="paciente.email" required #email="ngModel">
+  <div *ngIf="email.invalid && email.touched" style="color: red;">
+    El email es obligatorio y debe tener un formato válido.
+  </div>
+
+  <label>Observaciones clínicas:</label>
+  <textarea name="observacionesClinicas" [(ngModel)]="paciente.observacionesClinicas"></textarea>
+
+  <button type="submit" [disabled]="formPaciente.invalid">Guardar Paciente</button>
+</form>

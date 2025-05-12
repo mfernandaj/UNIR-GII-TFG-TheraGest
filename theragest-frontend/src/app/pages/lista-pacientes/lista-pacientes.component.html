@@ -1,0 +1,33 @@
+<h2>Lista de Pacientes</h2>
+
+<table border="1" cellpanding="5" cellspacing="0">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Nombre</th>
+            <th>Apellidos</th>
+            <th>Telefono</th>
+            <th>Email</th>
+            <th>Observaciones Clínicas</th>
+        </tr>
+     </thead>
+     <tbody>
+        <tr *ngFor="let paciente of pacientes">
+            <td>{{paciente.id }}</td>
+            <td>{{paciente.nombre }}</td>
+            <td>{{paciente.apellidos }}</td>
+            <td>{{paciente.telefono }}</td>
+            <td>{{paciente.email }}</td>
+            <td>{{paciente.observacionesClinicas}}</td>
+            <td>
+                <button (click)="editarPaciente(paciente.id)">Modificar</button>
+                <button (click)="eliminarPaciente(paciente.id)">Eliminar</button>
+              </td>
+
+        </tr>
+
+     </tbody>
+
+
+
+</table>
