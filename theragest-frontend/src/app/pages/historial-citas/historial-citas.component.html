@@ -1,0 +1,39 @@
+<div class="panel">
+    <h2 class="titulo-panel">Historial de Citas del Paciente</h2>
+  
+    <div class="lista-container">
+      <div *ngIf="citas && citas.length === 0" class="mensaje-vacio">
+        <p>Este paciente no tiene citas registradas.</p>
+      </div>
+  
+      <table class="tabla" *ngIf="citas.length > 0">
+        <thead>
+          <tr>
+            <th>Fecha</th>
+            <th>Motivo</th>
+            <th>Teléfono</th>
+            <th>Email</th>
+            <th>Observaciones</th>
+            <th>Estado</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let cita of citas">
+            <td>{{ cita.fechaCita | date:'dd/MM/yyyy, HH:mm' }}</td>
+            <td>{{ cita.motivo }}</td>
+            <td>{{ cita.telefono }}</td>
+            <td>{{ cita.email }}</td>
+            <td>{{ cita.observaciones }}</td>
+            <td>
+              <span *ngIf="cita.estado === 'ACTIVA'" class="estado-icono" title="Cita Activa">🟢</span>
+            <span *ngIf="cita.estado === 'CANCELADA'" class="estado-icono" title="Cita Cancelada">🔴</span>
+            <span *ngIf="cita.estado === 'FINALIZADA'" class="estado-icono" title="Cita Finalizada">🔵</span>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      <div style="text-align: center; margin-top: 20px;">
+        <button class="btn-volver" routerLink="/pacientes"> Volver a la Lista de Pacientes</button>
+      </div>
+    </div>
+  </div>

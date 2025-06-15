@@ -6,7 +6,7 @@ public class PasswordHashGenerator {
 	
 	public static void main(String[] arg) {
 		BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
-		String rawPassword = "123456";
+		String rawPassword = "1234567";
 		String encodedPassword= encoder.encode(rawPassword);
 		
 		System.out.println("Hash generado para 123456:");

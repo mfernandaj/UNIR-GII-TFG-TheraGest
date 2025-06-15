@@ -1,0 +1,21 @@
+<div class="login-container">
+
+    <div class="login-header">
+        <img src="assets/img/logo1.png" alt="Logo TheraGest" class="logo-login" />
+        <h1>TheraGest</h1>
+    </div>
+
+    <h2>Iniciar Sesión</h2>
+    <form (ngSubmit)="iniciarSesion()">
+        <div>
+            <label>Nombre de usuario:</label>
+            <input type="text" [(ngModel)]="nombreUsuario" name="nombreUsuario" required>
+        </div>
+        <div>
+            <label>Contraseña:</label>
+            <input type="password" [(ngModel)]="contrasena" name="contrasena" required>
+        </div>
+        <button type="submit">Acceder</button>
+    </form>
+    <div class="error" *ngIf="mensajeError">{{ mensajeError }}</div>
+</div>

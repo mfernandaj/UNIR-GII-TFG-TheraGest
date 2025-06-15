@@ -1,0 +1,117 @@
+body {
+    background-color: #f8f7fc;
+    /* Lila muy claro */
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+.login-container {
+    max-width: 400px;
+    margin: 100px auto;
+    padding: 40px;
+    border-radius: 12px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    background: color-mix(in srgb, var(--color-base) 40%, white);
+}
+
+.login-header {
+    margin-bottom: 25px;
+}
+
+.login-header h1 {
+    font-size: 32px;
+    font-weight: bold;
+    color: var(--color-texto);
+    margin-bottom: 10px;
+    margin-top: 4px; 
+}
+
+.login-header h2 {
+    font-size: 18px;
+    font-weight: 500;
+    color: #555;
+    margin-top: -10px;
+    margin-bottom: 25px;
+}
+
+/*logo*/
+.logo-login {
+    width: 70px;
+    height: 70px;
+    margin-bottom: 0px; /* antes estaba en 10px */
+    
+  }
+
+label {
+    display: block;
+    text-align: left;
+    margin: 15px 0 5px;
+    font-weight: 500;
+    color: #444;
+}
+
+input {
+    width: 100%;
+    padding: 12px 14px;
+    margin-bottom: 12px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 14px;
+    box-sizing: border-box;
+}
+
+button {
+    background-color: var(--color-boton);
+    color: white;
+    border: none;
+    padding: 12px 20px;
+    border-radius: 8px;
+    font-size: 17px;
+    font-weight: 600;
+    cursor: pointer;
+    width: 100%;
+    margin-top: 15px;
+    transition: background-color 0.3s ease;
+    letter-spacing: 0.5px
+}
+
+button:hover {
+    background-color: var(--color-azul-hover);
+
+}
+
+input:focus {
+    border-color: var(--color-base);
+    outline: none;
+    box-shadow: 0 0 0 2px rgba(140, 82, 255, 0.15);
+}
+
+.error {
+    background-color: #ffe9e9;
+    color: #d9534f;
+    font-weight: 500;
+    padding: 10px;
+    border-radius: 8px;
+    margin-top: 14px;
+    
+}
+
+/* Estos estilos SOLO se aplican en móviles */
+@media (max-width: 500px) {
+    .login-container {
+        margin: 50px 20px;
+        padding: 25px 20px;
+        box-shadow: 0 0 8px rgba(0, 0, 0, 0.08);
+        border-radius: 16px;
+    }
+
+    .login-header h1 {
+        font-size: 28px;
+    }
+
+    button {
+        font-size: 16px;
+    }
+}

@@ -1,33 +1,80 @@
-<h2>Lista de Citas</h2>
+<div class="panel">
+  <div class="encabezado-panel">
+    <h2 class="titulo-panel">Lista de Citas</h2>
+    
+    <div class="filtro-fechas">
+      <label for="fechaInicio">Desde:</label>
+      <input type="date" id="fechaInicio" [(ngModel)]="fechaInicio" class="input-campos">
+      <label for="fechaFin">Hasta:</label>
+      <input type="date" id="fechaFin" [(ngModel)]="fechaFin" class="input-campos">
+      <div class="filtro-estado">
 
-<table border="1" cellpadding="5" cellspacing="0">
-  <thead>
-    <tr>
-      <th>ID</th>
-      <th>Paciente</th>
-      <th>Fecha</th>
-      <th>Motivo</th>
-      <th>Teléfono</th>
-      <th>Email</th>
-      <th>Observaciones</th>
-      <th>Estado</th>
-      <th>Acciones</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr *ngFor="let cita of citas">
-      <td>{{ cita.id }}</td>
-      <td>{{ cita.paciente.nombre }} {{ cita.paciente.apellidos }}</td>
-      <td>{{ cita.fechaCita | date:'d \'de\' MMMM \'de\' y, HH:mm':'es-ES' }}</td>
-      <td>{{ cita.motivo }}</td>
-      <td>{{ cita.telefono }}</td>
-      <td>{{ cita.email }}</td>
-      <td>{{ cita.observaciones }}</td>
-      <td>{{ cita.estado }}</td>
-      <td>
-        <button (click)="editarCita(cita.id)">Modificar</button>
-        <button (click)="cancelarCita(cita.id)" [disabled]="cita.estado==='CANCELADA'">Cancelar</button>
-      </td>
-    </tr>
-  </tbody>
-</table>
+        <select [(ngModel)]="estadoFiltro" class="input-campos">
+          <option value="">--Todos los estados--</option>
+          <option value="ACTIVA">Activa</option>
+          <option value="CANCELADA">Cancelada</option>
+          <option value="FINALIZADA">Finalizada</option>
+
+        </select>
+      </div>
+      <input type="text" [(ngModel)]="busquedaPaciente" placeholder="Buscar por paciente..." class="input-busqueda">
+      <button class="btn-limpiar" (click)="limpiar()">Limpiar</button>
+    </div>
+  </div>
+
+  <div class="lista-container">
+    <table class="tabla">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Paciente</th>
+          <th>Fecha</th>
+          <th>Motivo</th>
+          <th>Teléfono</th>
+          <th>Email</th>
+          <th>Observaciones</th>
+          <th>Estado</th>
+          <th>Acciones</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let cita of citasPaginadas">
+          <td>{{ cita.id }}</td>
+          <td>{{ cita.paciente.nombre }} {{ cita.paciente.apellidos }}</td>
+          <td>{{ cita.fechaCita | date:'dd/MM/yyyy, HH:mm' }}</td>
+          <td>{{ cita.motivo }}</td>
+          <td>{{ cita.telefono }}</td>
+          <td>{{ cita.email }}</td>
+          <td>{{ cita.observaciones }}</td>
+          <td>
+            <span *ngIf="cita.estado === 'ACTIVA'" class="estado-icono" title="Cita Activa">🟢</span>
+            <span *ngIf="cita.estado === 'CANCELADA'" class="estado-icono" title="Cita Cancelada">🔴</span>
+            <span *ngIf="cita.estado === 'FINALIZADA'" class="estado-icono" title="Cita Finalizada">🔵</span>
+          </td>
+          <td>
+
+            <div class="acciones">
+              <button class="btn-modificar" (click)="editarCita(cita.id)" [disabled]="cita.estado !== 'ACTIVA'"
+                [title]="cita.estado !== 'ACTIVA' ? 'Solo se pueden modificar citas activas' : ''">
+                Modificar</button>
+              <button class="btn-cancelar" (click)="cancelarCita(cita.id)" [disabled]="cita.estado !== 'ACTIVA'"
+                [title]="cita.estado !== 'ACTIVA' ? 'Solo se pueden cancelar citas activas' : ''">
+                Cancelar</button>
+                <button class="btn-finalizar" (click)="finalizarCita(cita.id)" [disabled]="cita.estado !== 'ACTIVA'"
+                [title]="cita.estado !== 'ACTIVA' ? 'Solo se pueden finalizar citas activas' : ''">
+                Finalizar
+              </button>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <div class="paginacion">
+      <button [disabled]="currentPage === 1" (click)="currentPage=currentPage-1">Anterior</button>
+      <span>Página {{ currentPage }} de {{ totalPages }}</span>
+      <button [disabled]="currentPage === totalPages" (click)="currentPage = currentPage + 1">Siguiente</button>
+    </div>
+
+
+  </div>
+</div>

@@ -1,5 +1,6 @@
 package com.theragest.controlador;
 
+import java.time.LocalDateTime;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -38,7 +39,7 @@ public class CitaControlador {
     	cita.setEstado("ACTIVA");
     	Long pacienteId = cita.getPaciente().getId();
     	Paciente PacienteCompleto = pacienteRepositorio.findById(pacienteId)
-    			.orElseThrow(() -> new ResourceNotFoundException("Paciente no encontrado con id: " + pacienteId));
+    			.orElseThrow(() -> new ResourceNotFoundException("Paciente no encontrado con el ID: " + pacienteId));
     	
     	//asociar el objeto completo al campo paciente de la cita
     	cita.setPaciente(PacienteCompleto);
@@ -63,7 +64,7 @@ public class CitaControlador {
         
         Long pacienteId = detallesCita.getPaciente().getId();
         Paciente pacienteCompleto = pacienteRepositorio.findById(pacienteId)
-                .orElseThrow(() -> new ResourceNotFoundException("Paciente no encontrado con id: " + pacienteId));
+                .orElseThrow(() -> new ResourceNotFoundException("Paciente no encontrado con el ID: " + pacienteId));
 
         cita.setPaciente(pacienteCompleto);
         cita.setFechaCita(detallesCita.getFechaCita());
@@ -99,5 +100,36 @@ public class CitaControlador {
     }
     
     
+    //finalizar una cita
+
+    @PutMapping("/{id}/finalizar")
+    public ResponseEntity<Cita> finalizarCita(@PathVariable Long id) {
+        Cita cita = citaRepositorio.findById(id)
+            .orElseThrow(() -> new ResourceNotFoundException("Cita no encontrada con el ID: " + id));
+        cita.setEstado("FINALIZADA");
+        return ResponseEntity.ok(citaRepositorio.save(cita));
+    }
+    
+    //Obtener una cita por id de paciente
+    
+    @GetMapping("/pacientes/{id}/citas")
+    public ResponseEntity<List<Cita>> obtenerCitasPorPaciente(@PathVariable Long id){
+    	List<Cita> citas=citaRepositorio.findByPacienteId(id);
+    	return ResponseEntity.ok(citas);
+    	   	
+    }
+    
+    //notificaciones de citas
+    
+    @GetMapping("/proximas")
+    public ResponseEntity<List<Cita>> obtenerCitasProximas(){
+    	LocalDateTime ahora=LocalDateTime.now();
+    	LocalDateTime limite=ahora.plusDays(1);
+    	
+    	List<Cita> citas=citaRepositorio.findByFechaCitaBetween(ahora, limite);
+    	return ResponseEntity.ok(citas);
+    }
+    
+
     
 }

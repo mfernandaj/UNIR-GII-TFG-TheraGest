@@ -1,33 +1,52 @@
-<h2>Lista de Pacientes</h2>
+<div class="panel">
 
-<table border="1" cellpanding="5" cellspacing="0">
-    <thead>
-        <tr>
-            <th>ID</th>
-            <th>Nombre</th>
-            <th>Apellidos</th>
-            <th>Telefono</th>
-            <th>Email</th>
-            <th>Observaciones Clínicas</th>
-        </tr>
-     </thead>
-     <tbody>
-        <tr *ngFor="let paciente of pacientes">
-            <td>{{paciente.id }}</td>
-            <td>{{paciente.nombre }}</td>
-            <td>{{paciente.apellidos }}</td>
-            <td>{{paciente.telefono }}</td>
-            <td>{{paciente.email }}</td>
-            <td>{{paciente.observacionesClinicas}}</td>
-            <td>
-                <button (click)="editarPaciente(paciente.id)">Modificar</button>
-                <button (click)="eliminarPaciente(paciente.id)">Eliminar</button>
-              </td>
+    <div class="encabezado-panel">
+        <h2 class="titulo-panel">Lista de Pacientes</h2>
+        <div class="busqueda-wrapper">
+            <input type="text" placeholder="Buscar por nombre, apellidos o telefono.." [(ngModel)]="terminoBusqueda"
+                class="input-busqueda" />
+        </div>
+    </div>
+    
+    <div class="lista-container">
+        <div class="tabla-responsive">
+            <table class="tabla">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Nombre</th>
+                        <th>Apellidos</th>
+                        <th>Teléfono</th>
+                        <th>Email</th>
+                        <th>Observaciones Clínicas</th>
+                        <th>Acciones</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let paciente of pacientesPaginados">
+                        <td>{{paciente.id }}</td>
+                        <td>{{paciente.nombre }}</td>
+                        <td>{{paciente.apellidos }}</td>
+                        <td>{{paciente.telefono }}</td>
+                        <td>{{paciente.email }}</td>
+                        <td>{{paciente.observacionesClinicas}}</td>
+                        <td>
+                            <div class="acciones">
+                                <button class="btn-modificar" (click)="editarPaciente(paciente.id)">Modificar</button>
+                                <button class="btn-cancelar" (click)="eliminarPaciente(paciente.id)">Eliminar</button>
+                                <button class="btn-ver" [routerLink]="['/historial-citas',paciente.id]">📋 Historial
+                                </button>
+                            </div>
+                        </td>
 
-        </tr>
-
-     </tbody>
-
-
-
-</table>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="paginacion">
+            <button [disabled]="currentPage === 1" (click)="currentPage = currentPage - 1">Anterior</button>
+            <span>Página {{ currentPage }} de {{ totalPages }}</span>
+            <button [disabled]="currentPage === totalPages" (click)="currentPage = currentPage + 1">Siguiente</button>
+        </div>
+    </div>
+</div>

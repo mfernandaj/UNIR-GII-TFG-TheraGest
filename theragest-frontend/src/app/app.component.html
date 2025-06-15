@@ -1,14 +1,30 @@
-<h1>Bienvenida a TheraGest</h1>
-<nav>
-  <ul>
-    <li><a routerLink="/">Inicio</a></li>
-    <li><a routerLink="/citas">Lista de Citas</a></li>
-    <li><a routerLink="/nueva-cita">Nueva Cita</a></li>
-    <li><a routerLink="/pacientes" routerLinkActive="active">Lista de Pacientes</a></li>
-  <li><a routerLink="/nuevo-paciente" routerLinkActive="active">Registrar Paciente</a></li>
-  </ul>
-</nav>
+<!-- CABECERA SUPERIOR -->
+<header *ngIf="mostrarMenu" class="app-header">
+  <div class="logo-barra">
+    <img src="assets/img/logo1.png" alt="Logo" class="logo-icon" />
+    <span class="logo-text">TheraGest</span>
+  </div>
 
-<hr />
+  <!-- NAV sólo si autenticado y mostrarMenu es true -->
+  <nav *ngIf="autenticado && mostrarMenu" class="nav-bar">
+    <ul class="nav-links">
+      <li><a routerLink="/dashboard">Inicio</a></li>
+      <li><a routerLink="/citas">Lista de Citas</a></li>
+      <li><a routerLink="/nueva-cita">Nueva Cita</a></li>
+      <li><a routerLink="/pacientes">Lista de Pacientes</a></li>
+      <li><a routerLink="/nuevo-paciente">Registrar Paciente</a></li>
+      <li><a routerLink="/citas-proximas">Citas Próximas</a></li>
+    </ul>
+  </nav>
 
-<router-outlet></router-outlet>
+  <!-- USUARIO -->
+  <div class="usuario-barra" *ngIf="usuarioLogueado && mostrarMenu">
+    <p>Hola, {{ usuarioLogueado }}</p>
+    <span class="cerrar-sesion" (click)="cerrarSesion()">Cerrar sesión</span>
+  </div>
+</header>
+
+<!-- CONTENIDO PRINCIPAL -->
+<div class="app-wrapper">
+  <router-outlet></router-outlet>
+</div>

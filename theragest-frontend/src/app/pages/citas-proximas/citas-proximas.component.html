@@ -1,0 +1,43 @@
+<div class="panel">
+
+  <h2 class="titulo-panel">Citas programadas en las próximas 24 horas</h2>
+  <div class="lista-container">
+    <div *ngIf="citasProximas.length === 0" class="mensaje-vacio">
+      <p>No hay citas programadas en las próximas 24 horas.</p>
+    </div>
+
+    <div *ngIf="citasProximas.length > 0" class="lista-container">
+      <table class="tabla">
+        <thead>
+          <tr>
+            <th>Paciente</th>
+            <th>Fecha</th>
+            <th>Motivo</th>
+            <th>Teléfono</th>
+            <th>Email</th>
+            <th>Estado</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let cita of citasProximas">
+            <td>{{ cita.paciente.nombre }} {{ cita.paciente.apellidos }}</td>
+            <td>{{ cita.fechaCita | date:'dd/MM/yyyy, HH:mm' }}</td>
+            <td>{{ cita.motivo }}</td>
+            <td>{{ cita.telefono }}</td>
+            <td>{{ cita.email }}</td>
+            <td>
+              <span *ngIf="cita.estado === 'ACTIVA'" class="estado-icono" title="Cita Activa">🟢</span>
+              <span *ngIf="cita.estado === 'CANCELADA'" class="estado-icono" title="Cita Cancelada">🔴</span>
+              <span *ngIf="cita.estado === 'FINALIZADA'" class="estado-icono" title="Cita Finalizada">🔵</span>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      
+    </div>
+    <div style="text-align: center; margin-top: 20px;">
+      <button class="btn-volver" routerLink="/dashboard">Volver al Inicio</button>
+    </div>
+
+  </div>
+</div>

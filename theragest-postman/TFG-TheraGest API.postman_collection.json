@@ -1,10 +1,9 @@
 {
 	"info": {
-		"_postman_id": "6213dbe3-2485-4512-90ac-cb9dd368e4b4",
+		"_postman_id": "9c6006dc-a86e-43b1-81b0-8c8d1df91be9",
 		"name": "TFG-TheraGest API",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-		"_exporter_id": "14553438",
-		"_collection_link": "https://theragest.postman.co/workspace/tesis~597b7e91-bfd7-45e1-9f94-bf54c49695ac/collection/14553438-6213dbe3-2485-4512-90ac-cb9dd368e4b4?action=share&source=collection_link&creator=14553438"
+		"_exporter_id": "14553438"
 	},
 	"item": [
 		{
@@ -19,6 +18,9 @@
 								"exec": [
 									"pm.test(\"Status code is 200\", function () {\r",
 									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"pm.test(\"Es un array\", () => {\r",
+									"  pm.expect(pm.response.json()).to.be.an('array');\r",
 									"});"
 								],
 								"type": "text/javascript",
@@ -54,7 +56,99 @@
 							]
 						}
 					},
-					"response": []
+					"response": [
+						{
+							"name": "Obtener todas las citas",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/api/citas",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"citas"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Vary",
+									"value": "Origin"
+								},
+								{
+									"key": "Vary",
+									"value": "Access-Control-Request-Method"
+								},
+								{
+									"key": "Vary",
+									"value": "Access-Control-Request-Headers"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-XSS-Protection",
+									"value": "0"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, no-store, max-age=0, must-revalidate"
+								},
+								{
+									"key": "Pragma",
+									"value": "no-cache"
+								},
+								{
+									"key": "Expires",
+									"value": "0"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 10 Jun 2025 05:06:12 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "[\n    {\n        \"id\": 18,\n        \"paciente\": {\n            \"id\": 10,\n            \"nombre\": \"Laura\",\n            \"apellidos\": \"Valera\",\n            \"telefono\": \"666123456\",\n            \"email\": \"laura.valera@gmail.com\",\n            \"observacionesClinicas\": \"Dolor lumbar agudo tras esfuerzo físico intenso.\"\n        },\n        \"fechaCita\": \"2025-06-19T13:00:00\",\n        \"motivo\": \"Terapia manual para aliviar dolor lumbar\",\n        \"telefono\": \"666123456\",\n        \"email\": \"laura.valera@gmail.com\",\n        \"observaciones\": \"Dolor más intenso al final del día\",\n        \"estado\": \"ACTIVA\"\n    },\n    {\n        \"id\": 19,\n        \"paciente\": {\n            \"id\": 11,\n            \"nombre\": \"Marcos\",\n            \"apellidos\": \"García López\",\n            \"telefono\": \"678987654\",\n            \"email\": \"marcos.garcia@yahoo.com\",\n            \"observacionesClinicas\": \"Recuperación postoperatoria de ligamento cruzado anterior.\"\n        },\n        \"fechaCita\": \"2025-06-12T16:00:00\",\n        \"motivo\": \"Ejercicios de fortalecimiento de rodilla\",\n        \"telefono\": \"678987654\",\n        \"email\": \"marcos.garcia@yahoo.com\",\n        \"observaciones\": \"Postoperatorio, sesión nº 3 de 10\",\n        \"estado\": \"ACTIVA\"\n    },\n    {\n        \"id\": 20,\n        \"paciente\": {\n            \"id\": 12,\n            \"nombre\": \"Elena\",\n            \"apellidos\": \"Ruiz Pérez\",\n            \"telefono\": \"691223344\",\n            \"email\": \"elena.ruiz@hotmail.com\",\n            \"observacionesClinicas\": \"Rehabilitación por esguince de tobillo izquierdo, fase 2.\"\n        },\n        \"fechaCita\": \"2025-06-10T11:00:00\",\n        \"motivo\": \"Movilización de tobillo y reeducación de marcha\",\n        \"telefono\": \"691223344\",\n        \"email\": \"elena.ruiz@hotmail.com\",\n        \"observaciones\": \"Evolución favorable, continuar con carga progresiva\",\n        \"estado\": \"ACTIVA\"\n    },\n    {\n        \"id\": 21,\n        \"paciente\": {\n            \"id\": 14,\n            \"nombre\": \"Xavier\",\n            \"apellidos\": \"García\",\n            \"telefono\": \"654789412\",\n            \"email\": \"xavier.garcia@gmail.com\",\n            \"observacionesClinicas\": \"Dolor en la rodilla izquierda tras actividad física.\"\n        },\n        \"fechaCita\": \"2025-06-11T16:00:00\",\n        \"motivo\": \"Dolor en la rodilla\",\n        \"telefono\": \"654789412\",\n        \"email\": \"xavier.garcia@gmail.com\",\n        \"observaciones\": \"primera vez que viene a sesión con dolor de rodilla \",\n        \"estado\": \"ACTIVA\"\n    },\n    {\n        \"id\": 22,\n        \"paciente\": {\n            \"id\": 12,\n            \"nombre\": \"Elena\",\n            \"apellidos\": \"Ruiz Pérez\",\n            \"telefono\": \"691223344\",\n            \"email\": \"elena.ruiz@hotmail.com\",\n            \"observacionesClinicas\": \"Rehabilitación por esguince de tobillo izquierdo, fase 2.\"\n        },\n        \"fechaCita\": \"2025-05-30T12:00:00\",\n        \"motivo\": \"Dolor en las lumbares\",\n        \"telefono\": \"657896541\",\n        \"email\": \"laura@gmail.com\",\n        \"observaciones\": \"Problemas en la ciática\",\n        \"estado\": \"CANCELADA\"\n    },\n    {\n        \"id\": 23,\n        \"paciente\": {\n            \"id\": 15,\n            \"nombre\": \"Gema\",\n            \"apellidos\": \"González\",\n            \"telefono\": \"678945464\",\n            \"email\": \"gema.gonzalez@yahoo.es\",\n            \"observacionesClinicas\": \"Lumbalgia recurrente. Evaluación para tratamiento continuo.\"\n        },\n        \"fechaCita\": \"2025-06-03T14:13:00\",\n        \"motivo\": \"dolor en la espalda\",\n        \"telefono\": \"657896541\",\n        \"email\": \"gema.gonzalez@gmail.com\",\n        \"observaciones\": \"Revisión mensual\",\n        \"estado\": \"FINALIZADA\"\n    },\n    {\n        \"id\": 24,\n        \"paciente\": {\n            \"id\": 10,\n            \"nombre\": \"Laura\",\n            \"apellidos\": \"Valera\",\n            \"telefono\": \"666123456\",\n            \"email\": \"laura.valera@gmail.com\",\n            \"observacionesClinicas\": \"Dolor lumbar agudo tras esfuerzo físico intenso.\"\n        },\n        \"fechaCita\": \"2025-05-30T11:01:00\",\n        \"motivo\": \"Tratamiento de osteopatía\",\n        \"telefono\": \"666123456\",\n        \"email\": \"laura.valera@gmail.com\",\n        \"observaciones\": \"Ninguna\",\n        \"estado\": \"CANCELADA\"\n    },\n    {\n        \"id\": 25,\n        \"paciente\": {\n            \"id\": 17,\n            \"nombre\": \"Veronica\",\n            \"apellidos\": \"Vásquez\",\n            \"telefono\": \"655444777\",\n            \"email\": \"veronica.vasquez@gmail.com\",\n            \"observacionesClinicas\": \"Primera consulta por tensión muscular en cervicales.\"\n        },\n        \"fechaCita\": \"2025-06-10T10:00:00\",\n        \"motivo\": \"Dolor en las lumbares\",\n        \"telefono\": \"655444777\",\n        \"email\": \"veronica.vasquez@gmail.com\",\n        \"observaciones\": \"Primera cita \",\n        \"estado\": \"ACTIVA\"\n    },\n    {\n        \"id\": 26,\n        \"paciente\": {\n            \"id\": 22,\n            \"nombre\": \"Joaquin\",\n            \"apellidos\": \"Recio\",\n            \"telefono\": \"444777889\",\n            \"email\": \"joaquin.recio@gmail.com\",\n            \"observacionesClinicas\": \"Molestias cervicales tras accidente leve.\"\n        },\n        \"fechaCita\": \"2025-06-27T16:51:00\",\n        \"motivo\": \"dolores en las cervicales\",\n        \"telefono\": \"444555666\",\n        \"email\": \"joaquin.recio@gmail.com\",\n        \"observaciones\": \"primera cita\",\n        \"estado\": \"ACTIVA\"\n    },\n    {\n        \"id\": 27,\n        \"paciente\": {\n            \"id\": 16,\n            \"nombre\": \"Luis\",\n            \"apellidos\": \"Salamanca\",\n            \"telefono\": \"658789651\",\n            \"email\": \"luis.salamanca@hotmail.es\",\n            \"observacionesClinicas\": \"Dolor cervical persistente tras accidente doméstico.\"\n        },\n        \"fechaCita\": \"2025-05-27T12:51:00\",\n        \"motivo\": \"terapia rodilla\",\n        \"telefono\": \"658789651\",\n        \"email\": \"luis.salamanca@hotmail.es\",\n        \"observaciones\": \"bono de 8 sesiones\",\n        \"estado\": \"FINALIZADA\"\n    },\n    {\n        \"id\": 28,\n        \"paciente\": {\n            \"id\": 18,\n            \"nombre\": \"Laura\",\n            \"apellidos\": \"Fernandez\",\n            \"telefono\": \"666444555\",\n            \"email\": \"laura.fernandez@gmail.com\",\n            \"observacionesClinicas\": \"Primera consulta por molestias lumbares.\"\n        },\n        \"fechaCita\": \"2025-06-27T12:51:00\",\n        \"motivo\": \"Dolor cervical\",\n        \"telefono\": \"666444555\",\n        \"email\": \"laura.fernandez\",\n        \"observaciones\": \"Tensión acumulada por estrés\",\n        \"estado\": \"ACTIVA\"\n    },\n    {\n        \"id\": 29,\n        \"paciente\": {\n            \"id\": 15,\n            \"nombre\": \"Gema\",\n            \"apellidos\": \"González\",\n            \"telefono\": \"678945464\",\n            \"email\": \"gema.gonzalez@yahoo.es\",\n            \"observacionesClinicas\": \"Lumbalgia recurrente. Evaluación para tratamiento continuo.\"\n        },\n        \"fechaCita\": \"2025-06-16T12:51:00\",\n        \"motivo\": \"Dolor lumbar crónico\",\n        \"telefono\": \"657896541\",\n        \"email\": \"gema.gonzalez@gmail.com\",\n        \"observaciones\": \"Revisión mensual\",\n        \"estado\": \"ACTIVA\"\n    },\n    {\n        \"id\": 30,\n        \"paciente\": {\n            \"id\": 17,\n            \"nombre\": \"Veronica\",\n            \"apellidos\": \"Vásquez\",\n            \"telefono\": \"655444777\",\n            \"email\": \"veronica.vasquez@gmail.com\",\n            \"observacionesClinicas\": \"Primera consulta por tensión muscular en cervicales.\"\n        },\n        \"fechaCita\": \"2025-05-27T12:08:00\",\n        \"motivo\": \"dolor rodilla\",\n        \"telefono\": \"655444777\",\n        \"email\": \"veronica.vasquez@hotmail.com\",\n        \"observaciones\": \"Tercera cita\",\n        \"estado\": \"CANCELADA\"\n    },\n    {\n        \"id\": 33,\n        \"paciente\": {\n            \"id\": 20,\n            \"nombre\": \"Jorge\",\n            \"apellidos\": \"Gomez\",\n            \"telefono\": \"666111222\",\n            \"email\": \"jorge.gonzalez@gmail.com\",\n            \"observacionesClinicas\": \"Lumbalgia aguda. Primera sesión.\"\n        },\n        \"fechaCita\": \"2025-06-11T18:38:00\",\n        \"motivo\": \"Dolor en el cuello\",\n        \"telefono\": \"666777888\",\n        \"email\": \"jorge.gomez@gmail.com\",\n        \"observaciones\": \"segunda cita\",\n        \"estado\": \"CANCELADA\"\n    },\n    {\n        \"id\": 34,\n        \"paciente\": {\n            \"id\": 19,\n            \"nombre\": \"Laura\",\n            \"apellidos\": \"Martin\",\n            \"telefono\": \"666777888\",\n            \"email\": \"laura.martin@gmail.com\",\n            \"observacionesClinicas\": \"Cita inicial + evaluación para bono de 5 sesiones.\"\n        },\n        \"fechaCita\": \"2025-06-30T08:48:00\",\n        \"motivo\": \"Dolor en las lumbares\",\n        \"telefono\": \"666777888\",\n        \"email\": \"laura.martin@gmail.com\",\n        \"observaciones\": \"Cita inicial + evaluación para bono de 5 sesiones. Quinta sesión.\",\n        \"estado\": \"ACTIVA\"\n    },\n    {\n        \"id\": 35,\n        \"paciente\": {\n            \"id\": 19,\n            \"nombre\": \"Laura\",\n            \"apellidos\": \"Martin\",\n            \"telefono\": \"666777888\",\n            \"email\": \"laura.martin@gmail.com\",\n            \"observacionesClinicas\": \"Cita inicial + evaluación para bono de 5 sesiones.\"\n        },\n        \"fechaCita\": \"2025-06-06T08:49:00\",\n        \"motivo\": \"Dolor en las vervicales\",\n        \"telefono\": \"666777888\",\n        \"email\": \"laura.martin@gmail.com\",\n        \"observaciones\": \"Bono de 5 sesiones. Tercera sesión.\",\n        \"estado\": \"ACTIVA\"\n    },\n    {\n        \"id\": 36,\n        \"paciente\": {\n            \"id\": 19,\n            \"nombre\": \"Laura\",\n            \"apellidos\": \"Martin\",\n            \"telefono\": \"666777888\",\n            \"email\": \"laura.martin@gmail.com\",\n            \"observacionesClinicas\": \"Cita inicial + evaluación para bono de 5 sesiones.\"\n        },\n        \"fechaCita\": \"2025-06-12T11:00:00\",\n        \"motivo\": \"Dolor en las lumbares y cervicales\",\n        \"telefono\": \"666777888\",\n        \"email\": \"laura.martin@gmail.com\",\n        \"observaciones\": \"Evaluación para bono de 5 sesiones. Cuarta Sesión.\",\n        \"estado\": \"ACTIVA\"\n    },\n    {\n        \"id\": 37,\n        \"paciente\": {\n            \"id\": 16,\n            \"nombre\": \"Luis\",\n            \"apellidos\": \"Salamanca\",\n            \"telefono\": \"658789651\",\n            \"email\": \"luis.salamanca@hotmail.es\",\n            \"observacionesClinicas\": \"Dolor cervical persistente tras accidente doméstico.\"\n        },\n        \"fechaCita\": \"2025-06-10T17:00:00\",\n        \"motivo\": \"Terapia rodilla\",\n        \"telefono\": \"65878965\",\n        \"email\": \"luis.salamanca@hotmail.es\",\n        \"observaciones\": \"bono de 7 sesiones\",\n        \"estado\": \"ACTIVA\"\n    },\n    {\n        \"id\": 38,\n        \"paciente\": {\n            \"id\": 19,\n            \"nombre\": \"Laura\",\n            \"apellidos\": \"Martin\",\n            \"telefono\": \"666777888\",\n            \"email\": \"laura.martin@gmail.com\",\n            \"observacionesClinicas\": \"Cita inicial + evaluación para bono de 5 sesiones.\"\n        },\n        \"fechaCita\": \"2025-05-22T10:30:00\",\n        \"motivo\": \"Dolor en las lumbares y cervicales\",\n        \"telefono\": \"666777888\",\n        \"email\": \"laura.martin@gmail.com\",\n        \"observaciones\": \"Cita inicial + evaluación para bono de 5 sesiones. Primera sesión.\",\n        \"estado\": \"FINALIZADA\"\n    },\n    {\n        \"id\": 39,\n        \"paciente\": {\n            \"id\": 19,\n            \"nombre\": \"Laura\",\n            \"apellidos\": \"Martin\",\n            \"telefono\": \"666777888\",\n            \"email\": \"laura.martin@gmail.com\",\n            \"observacionesClinicas\": \"Cita inicial + evaluación para bono de 5 sesiones.\"\n        },\n        \"fechaCita\": \"2025-05-30T15:00:00\",\n        \"motivo\": \"Dolor en las lumbares y cervicales\",\n        \"telefono\": \"666777888\",\n        \"email\": \"laura.martin@gmail.com\",\n        \"observaciones\": \"Evaluación para bono de 5 sesiones. Segunda Sesión\",\n        \"estado\": \"FINALIZADA\"\n    },\n    {\n        \"id\": 40,\n        \"paciente\": {\n            \"id\": 19,\n            \"nombre\": \"Laura\",\n            \"apellidos\": \"Martin\",\n            \"telefono\": \"666777888\",\n            \"email\": \"laura.martin@gmail.com\",\n            \"observacionesClinicas\": \"Cita inicial + evaluación para bono de 5 sesiones.\"\n        },\n        \"fechaCita\": \"2025-06-02T18:00:00\",\n        \"motivo\": \"Dolor en las lumbares y cervicales.\",\n        \"telefono\": \"666777888\",\n        \"email\": \"laura.martin@gmail.com\",\n        \"observaciones\": \"Evaluación para bono de 5 sesiones. Tercera Sesión.\",\n        \"estado\": \"CANCELADA\"\n    },\n    {\n        \"id\": 41,\n        \"paciente\": {\n            \"id\": 18,\n            \"nombre\": \"Laura\",\n            \"apellidos\": \"Fernandez\",\n            \"telefono\": \"666444555\",\n            \"email\": \"laura.fernandez@gmail.com\",\n            \"observacionesClinicas\": \"Primera consulta por molestias lumbares.\"\n        },\n        \"fechaCita\": \"2025-06-12T12:00:00\",\n        \"motivo\": \"Dolores de ciática. Tratamiento de osteopatía\",\n        \"telefono\": \"666123456\",\n        \"email\": \"laura.valera@gmail.com\",\n        \"observaciones\": \"Dolor más intenso al final del día\",\n        \"estado\": \"ACTIVA\"\n    },\n    {\n        \"id\": 42,\n        \"paciente\": {\n            \"id\": 17,\n            \"nombre\": \"Veronica\",\n            \"apellidos\": \"Vásquez\",\n            \"telefono\": \"655444777\",\n            \"email\": \"veronica.vasquez@gmail.com\",\n            \"observacionesClinicas\": \"Primera consulta por tensión muscular en cervicales.\"\n        },\n        \"fechaCita\": \"2025-06-09T10:00:00\",\n        \"motivo\": \"Dolor muscular en cervicales.\",\n        \"telefono\": \"655444777\",\n        \"email\": \"veronica.vasquez@gmail.com\",\n        \"observaciones\": \"Segunda Consulta\",\n        \"estado\": \"ACTIVA\"\n    },\n    {\n        \"id\": 43,\n        \"paciente\": {\n            \"id\": 14,\n            \"nombre\": \"Xavier\",\n            \"apellidos\": \"García\",\n            \"telefono\": \"654789412\",\n            \"email\": \"xavier.garcia@gmail.com\",\n            \"observacionesClinicas\": \"Dolor en la rodilla izquierda tras actividad física.\"\n        },\n        \"fechaCita\": \"2025-06-10T13:00:00\",\n        \"motivo\": \"Dolor en la rodilla izquierda tras actividad física.\",\n        \"telefono\": \"654789412\",\n        \"email\": \"xavier.garcia@gmail.com\",\n        \"observaciones\": \"Segunda cita\",\n        \"estado\": \"ACTIVA\"\n    }\n]"
+						}
+					]
 				},
 				{
 					"name": "Obtener cita por ID",
@@ -76,7 +170,7 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:8080/api/citas/{id}",
+							"raw": "http://localhost:8080/api/citas/{{citaId}}",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -85,11 +179,95 @@
 							"path": [
 								"api",
 								"citas",
-								"{id}"
+								"{{citaId}}"
 							]
 						}
 					},
-					"response": []
+					"response": [
+						{
+							"name": "Obtener cita por ID",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8080/api/citas/24",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"citas",
+										"24"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Vary",
+									"value": "Origin"
+								},
+								{
+									"key": "Vary",
+									"value": "Access-Control-Request-Method"
+								},
+								{
+									"key": "Vary",
+									"value": "Access-Control-Request-Headers"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-XSS-Protection",
+									"value": "0"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, no-store, max-age=0, must-revalidate"
+								},
+								{
+									"key": "Pragma",
+									"value": "no-cache"
+								},
+								{
+									"key": "Expires",
+									"value": "0"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 10 Jun 2025 05:10:40 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"id\": 24,\n    \"paciente\": {\n        \"id\": 10,\n        \"nombre\": \"Laura\",\n        \"apellidos\": \"Valera\",\n        \"telefono\": \"666123456\",\n        \"email\": \"laura.valera@gmail.com\",\n        \"observacionesClinicas\": \"Dolor lumbar agudo tras esfuerzo físico intenso.\"\n    },\n    \"fechaCita\": \"2025-05-30T11:01:00\",\n    \"motivo\": \"Tratamiento de osteopatía\",\n    \"telefono\": \"666123456\",\n    \"email\": \"laura.valera@gmail.com\",\n    \"observaciones\": \"Ninguna\",\n    \"estado\": \"CANCELADA\"\n}"
+						}
+					]
 				},
 				{
 					"name": "Crear nueva cita",
@@ -112,7 +290,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n  \"nombrePaciente\": \"Lucía Torres\",\r\n  \"fechaCita\": \"2025-04-05T11:00:00\",\r\n  \"motivo\": \"Sesión de fisioterapia\",\r\n  \"telefono\": \"612345678\",\r\n  \"email\": \"lucia@example.com\",\r\n  \"observaciones\": \"Paciente habitual\"\r\n}",
+							"raw": "{\r\n    \"paciente\": {\r\n        \"id\": 12\r\n    },\r\n    \r\n  \"fechaCita\": \"2025-06-11T11:00:00\",\r\n  \"motivo\": \"Movilización de tobillo y reeducación de marcha\",\r\n  \"telefono\": \"691223344\",\r\n  \"email\": \"elena.ruiz@hotmail.com\",\r\n  \"observaciones\": \"Evolución favorable, continuar con carga progresiva\",\r\n  \"estado\": \"ACTIVA\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -132,7 +310,190 @@
 							]
 						}
 					},
-					"response": []
+					"response": [
+						{
+							"name": "Crear cita-KO",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"paciente\": {\r\n    \"id\": 20\r\n  },\r\n  \"fechaCita\": \"2025-06-10T11:00:00\",\r\n  \"motivo\": \"Terapia de recuperación\",\r\n  \"telefono\": \"612345678\",\r\n  \"email\": \"gemalopez@gmail.com\",\r\n  \"observaciones\": \"Primera consulta\",\r\n  \"estado\": \"ACTIVA\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/api/citas",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"citas"
+									]
+								}
+							},
+							"status": "Not Found",
+							"code": 404,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Vary",
+									"value": "Origin"
+								},
+								{
+									"key": "Vary",
+									"value": "Access-Control-Request-Method"
+								},
+								{
+									"key": "Vary",
+									"value": "Access-Control-Request-Headers"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-XSS-Protection",
+									"value": "0"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, no-store, max-age=0, must-revalidate"
+								},
+								{
+									"key": "Pragma",
+									"value": "no-cache"
+								},
+								{
+									"key": "Expires",
+									"value": "0"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 10 Jun 2025 04:44:28 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"error\": \"Recurso no encontrado\",\n    \"message\": \"Paciente no encontrado con id: 50\",\n    \"timestamp\": \"2025-06-10T06:44:28.387546\",\n    \"status\": 404\n}"
+						},
+						{
+							"name": "Crear cita-OK",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"paciente\": {\r\n        \"id\": 12\r\n    },\r\n    \r\n  \"fechaCita\": \"2025-06-11T11:00:00\",\r\n  \"motivo\": \"Movilización de tobillo y reeducación de marcha\",\r\n  \"telefono\": \"691223344\",\r\n  \"email\": \"elena.ruiz@hotmail.com\",\r\n  \"observaciones\": \"Evolución favorable, continuar con carga progresiva\",\r\n  \"estado\": \"ACTIVA\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/api/citas",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"citas"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Vary",
+									"value": "Origin"
+								},
+								{
+									"key": "Vary",
+									"value": "Access-Control-Request-Method"
+								},
+								{
+									"key": "Vary",
+									"value": "Access-Control-Request-Headers"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-XSS-Protection",
+									"value": "0"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, no-store, max-age=0, must-revalidate"
+								},
+								{
+									"key": "Pragma",
+									"value": "no-cache"
+								},
+								{
+									"key": "Expires",
+									"value": "0"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 10 Jun 2025 06:17:50 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"id\": 45,\n    \"paciente\": {\n        \"id\": 12,\n        \"nombre\": \"Elena\",\n        \"apellidos\": \"Ruiz Pérez\",\n        \"telefono\": \"691223344\",\n        \"email\": \"elena.ruiz@hotmail.com\",\n        \"observacionesClinicas\": \"Rehabilitación por esguince de tobillo izquierdo, fase 2.\"\n    },\n    \"fechaCita\": \"2025-06-11T11:00:00\",\n    \"motivo\": \"Movilización de tobillo y reeducación de marcha\",\n    \"telefono\": \"691223344\",\n    \"email\": \"elena.ruiz@hotmail.com\",\n    \"observaciones\": \"Evolución favorable, continuar con carga progresiva\",\n    \"estado\": \"ACTIVA\"\n}"
+						}
+					]
 				},
 				{
 					"name": "Modificar cita",
@@ -155,7 +516,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n  \"nombrePaciente\": \"Laura González Actualizada\",\r\n  \"fechaCita\": \"2025-04-10T10:30:00\",\r\n  \"motivo\": \"Dolor cervical\",\r\n  \"telefono\": \"600999999\",\r\n  \"email\": \"laura_nueva@example.com\",\r\n  \"observaciones\": \"Segunda sesión\"\r\n}",
+							"raw": "{\r\n    \"paciente\": {\r\n        \"id\": 12\r\n    },\r\n    \"fechaCita\": \"2025-06-11T12:00:00.000\",\r\n    \"telefono\": 691223344,\r\n    \"email\": \"elena.ruiz@hotmail.com\",\r\n    \"motivo\": \"Movilización de tobillo y reeducación de marcha\",\r\n    \"observaciones\": \"ninguna\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -163,7 +524,7 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:8080/api/citas/3",
+							"raw": "http://localhost:8080/api/citas/{{citaId}}",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -172,14 +533,1045 @@
 							"path": [
 								"api",
 								"citas",
-								"3"
+								"{{citaId}}"
 							]
 						}
 					},
-					"response": []
+					"response": [
+						{
+							"name": "Modificar cita",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"paciente\": {\r\n        \"id\": 12\r\n    },\r\n    \"fechaCita\": \"2025-06-11T12:00:00.000\",\r\n    \"telefono\": 691223344,\r\n    \"email\": \"elena.ruiz@hotmail.com\",\r\n    \"motivo\": \"Movilización de tobillo y reeducación de marcha\",\r\n    \"observaciones\": \"ninguna\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/api/citas/{{citaId}}",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"citas",
+										"{{citaId}}"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Vary",
+									"value": "Origin"
+								},
+								{
+									"key": "Vary",
+									"value": "Access-Control-Request-Method"
+								},
+								{
+									"key": "Vary",
+									"value": "Access-Control-Request-Headers"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-XSS-Protection",
+									"value": "0"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, no-store, max-age=0, must-revalidate"
+								},
+								{
+									"key": "Pragma",
+									"value": "no-cache"
+								},
+								{
+									"key": "Expires",
+									"value": "0"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 10 Jun 2025 06:22:07 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"id\": 45,\n    \"paciente\": {\n        \"id\": 12,\n        \"nombre\": \"Elena\",\n        \"apellidos\": \"Ruiz Pérez\",\n        \"telefono\": \"691223344\",\n        \"email\": \"elena.ruiz@hotmail.com\",\n        \"observacionesClinicas\": \"Rehabilitación por esguince de tobillo izquierdo, fase 2.\"\n    },\n    \"fechaCita\": \"2025-06-11T12:00:00\",\n    \"motivo\": \"Movilización de tobillo y reeducación de marcha\",\n    \"telefono\": \"691223344\",\n    \"email\": \"elena.ruiz@hotmail.com\",\n    \"observaciones\": \"ninguna\",\n    \"estado\": \"ACTIVA\"\n}"
+						}
+					]
 				},
 				{
-					"name": "Eliminar cita",
+					"name": "Cancelar cita",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/citas/{{citaId}}/cancelar",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"citas",
+								"{{citaId}}",
+								"cancelar"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Cancelar cita",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/api/citas/24/cancelar",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"citas",
+										"24",
+										"cancelar"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Vary",
+									"value": "Origin"
+								},
+								{
+									"key": "Vary",
+									"value": "Access-Control-Request-Method"
+								},
+								{
+									"key": "Vary",
+									"value": "Access-Control-Request-Headers"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-XSS-Protection",
+									"value": "0"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, no-store, max-age=0, must-revalidate"
+								},
+								{
+									"key": "Pragma",
+									"value": "no-cache"
+								},
+								{
+									"key": "Expires",
+									"value": "0"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 10 Jun 2025 05:11:53 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"id\": 24,\n    \"paciente\": {\n        \"id\": 10,\n        \"nombre\": \"Laura\",\n        \"apellidos\": \"Valera\",\n        \"telefono\": \"666123456\",\n        \"email\": \"laura.valera@gmail.com\",\n        \"observacionesClinicas\": \"Dolor lumbar agudo tras esfuerzo físico intenso.\"\n    },\n    \"fechaCita\": \"2025-05-30T11:01:00\",\n    \"motivo\": \"Tratamiento de osteopatía\",\n    \"telefono\": \"666123456\",\n    \"email\": \"laura.valera@gmail.com\",\n    \"observaciones\": \"Ninguna\",\n    \"estado\": \"CANCELADA\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Finalizar",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/citas/{{citaId}}/finalizar",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"citas",
+								"{{citaId}}",
+								"finalizar"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Finalizar cita",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/api/citas/{{citaId}}/finalizar",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"citas",
+										"{{citaId}}",
+										"finalizar"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Vary",
+									"value": "Origin"
+								},
+								{
+									"key": "Vary",
+									"value": "Access-Control-Request-Method"
+								},
+								{
+									"key": "Vary",
+									"value": "Access-Control-Request-Headers"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-XSS-Protection",
+									"value": "0"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, no-store, max-age=0, must-revalidate"
+								},
+								{
+									"key": "Pragma",
+									"value": "no-cache"
+								},
+								{
+									"key": "Expires",
+									"value": "0"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 10 Jun 2025 06:34:31 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"id\": 43,\n    \"paciente\": {\n        \"id\": 14,\n        \"nombre\": \"Xavier\",\n        \"apellidos\": \"García\",\n        \"telefono\": \"654789412\",\n        \"email\": \"xavier.garcia@gmail.com\",\n        \"observacionesClinicas\": \"Dolor en la rodilla izquierda tras actividad física.\"\n    },\n    \"fechaCita\": \"2025-06-10T13:00:00\",\n    \"motivo\": \"Dolor en la rodilla izquierda tras actividad física.\",\n    \"telefono\": \"654789412\",\n    \"email\": \"xavier.garcia@gmail.com\",\n    \"observaciones\": \"Segunda cita\",\n    \"estado\": \"FINALIZADA\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Citas proximas",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/citas/proximas",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"citas",
+								"proximas"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Citas proximas",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/api/citas/proximas",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"citas",
+										"proximas"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Vary",
+									"value": "Origin"
+								},
+								{
+									"key": "Vary",
+									"value": "Access-Control-Request-Method"
+								},
+								{
+									"key": "Vary",
+									"value": "Access-Control-Request-Headers"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-XSS-Protection",
+									"value": "0"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, no-store, max-age=0, must-revalidate"
+								},
+								{
+									"key": "Pragma",
+									"value": "no-cache"
+								},
+								{
+									"key": "Expires",
+									"value": "0"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 10 Jun 2025 06:48:20 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "[\n    {\n        \"id\": 20,\n        \"paciente\": {\n            \"id\": 12,\n            \"nombre\": \"Elena\",\n            \"apellidos\": \"Ruiz\",\n            \"telefono\": \"691223344\",\n            \"email\": \"elena.ruiz@hotmail.com\",\n            \"observacionesClinicas\": \"Movilización de tobillo y reeducación de marcha\"\n        },\n        \"fechaCita\": \"2025-06-10T11:00:00\",\n        \"motivo\": \"Movilización de tobillo y reeducación de marcha\",\n        \"telefono\": \"691223344\",\n        \"email\": \"elena.ruiz@hotmail.com\",\n        \"observaciones\": \"Evolución favorable, continuar con carga progresiva\",\n        \"estado\": \"CANCELADA\"\n    },\n    {\n        \"id\": 25,\n        \"paciente\": {\n            \"id\": 17,\n            \"nombre\": \"Veronica\",\n            \"apellidos\": \"Vásquez\",\n            \"telefono\": \"655444777\",\n            \"email\": \"veronica.vasquez@gmail.com\",\n            \"observacionesClinicas\": \"Primera consulta por tensión muscular en cervicales.\"\n        },\n        \"fechaCita\": \"2025-06-10T10:00:00\",\n        \"motivo\": \"Dolor en las lumbares\",\n        \"telefono\": \"655444777\",\n        \"email\": \"veronica.vasquez@gmail.com\",\n        \"observaciones\": \"Primera cita \",\n        \"estado\": \"ACTIVA\"\n    },\n    {\n        \"id\": 37,\n        \"paciente\": {\n            \"id\": 16,\n            \"nombre\": \"Luis\",\n            \"apellidos\": \"Salamanca\",\n            \"telefono\": \"658789651\",\n            \"email\": \"luis.salamanca@hotmail.es\",\n            \"observacionesClinicas\": \"Dolor cervical persistente tras accidente doméstico.\"\n        },\n        \"fechaCita\": \"2025-06-10T17:00:00\",\n        \"motivo\": \"Terapia rodilla\",\n        \"telefono\": \"65878965\",\n        \"email\": \"luis.salamanca@hotmail.es\",\n        \"observaciones\": \"bono de 7 sesiones\",\n        \"estado\": \"ACTIVA\"\n    },\n    {\n        \"id\": 43,\n        \"paciente\": {\n            \"id\": 14,\n            \"nombre\": \"Xavier\",\n            \"apellidos\": \"García\",\n            \"telefono\": \"654789412\",\n            \"email\": \"xavier.garcia@gmail.com\",\n            \"observacionesClinicas\": \"Dolor en la rodilla izquierda tras actividad física.\"\n        },\n        \"fechaCita\": \"2025-06-10T13:00:00\",\n        \"motivo\": \"Dolor en la rodilla izquierda tras actividad física.\",\n        \"telefono\": \"654789412\",\n        \"email\": \"xavier.garcia@gmail.com\",\n        \"observaciones\": \"Segunda cita\",\n        \"estado\": \"FINALIZADA\"\n    }\n]"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Pacientes",
+			"item": [
+				{
+					"name": "Obtener todos los pacientes",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/pacientes",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"pacientes"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Obtener todos los pacientes",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/api/pacientes",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"pacientes"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Vary",
+									"value": "Origin"
+								},
+								{
+									"key": "Vary",
+									"value": "Access-Control-Request-Method"
+								},
+								{
+									"key": "Vary",
+									"value": "Access-Control-Request-Headers"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-XSS-Protection",
+									"value": "0"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, no-store, max-age=0, must-revalidate"
+								},
+								{
+									"key": "Pragma",
+									"value": "no-cache"
+								},
+								{
+									"key": "Expires",
+									"value": "0"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 10 Jun 2025 04:25:19 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "[\n    {\n        \"id\": 10,\n        \"nombre\": \"Laura\",\n        \"apellidos\": \"Valera\",\n        \"telefono\": \"666123456\",\n        \"email\": \"laura.valera@gmail.com\",\n        \"observacionesClinicas\": \"Dolor lumbar agudo tras esfuerzo físico intenso.\"\n    },\n    {\n        \"id\": 11,\n        \"nombre\": \"Marcos\",\n        \"apellidos\": \"García López\",\n        \"telefono\": \"678987654\",\n        \"email\": \"marcos.garcia@yahoo.com\",\n        \"observacionesClinicas\": \"Recuperación postoperatoria de ligamento cruzado anterior.\"\n    },\n    {\n        \"id\": 12,\n        \"nombre\": \"Elena\",\n        \"apellidos\": \"Ruiz Pérez\",\n        \"telefono\": \"691223344\",\n        \"email\": \"elena.ruiz@hotmail.com\",\n        \"observacionesClinicas\": \"Rehabilitación por esguince de tobillo izquierdo, fase 2.\"\n    },\n    {\n        \"id\": 14,\n        \"nombre\": \"Xavier\",\n        \"apellidos\": \"García\",\n        \"telefono\": \"654789412\",\n        \"email\": \"alejandro.garcia@gmail.com\",\n        \"observacionesClinicas\": \"Dolor en la rodilla izquierda tras actividad física.\"\n    },\n    {\n        \"id\": 15,\n        \"nombre\": \"Gema\",\n        \"apellidos\": \"González\",\n        \"telefono\": \"678945464\",\n        \"email\": \"gema.gonzalez@yahoo.es\",\n        \"observacionesClinicas\": \"Lumbalgia recurrente. Evaluación para tratamiento continuo.\"\n    },\n    {\n        \"id\": 16,\n        \"nombre\": \"Luis\",\n        \"apellidos\": \"Salamanca\",\n        \"telefono\": \"658789651\",\n        \"email\": \"luis.salamanca@hotmail.es\",\n        \"observacionesClinicas\": \"Dolor cervical persistente tras accidente doméstico.\"\n    },\n    {\n        \"id\": 17,\n        \"nombre\": \"Veronica\",\n        \"apellidos\": \"Vásquez\",\n        \"telefono\": \"655444777\",\n        \"email\": \"veronica.vasquez@gmail.com\",\n        \"observacionesClinicas\": \"Primera consulta por tensión muscular en cervicales.\"\n    },\n    {\n        \"id\": 18,\n        \"nombre\": \"Laura\",\n        \"apellidos\": \"Fernandez\",\n        \"telefono\": \"666444555\",\n        \"email\": \"laura.fernandez@gmail.com\",\n        \"observacionesClinicas\": \"Primera consulta por molestias lumbares.\"\n    },\n    {\n        \"id\": 19,\n        \"nombre\": \"Laura\",\n        \"apellidos\": \"Martin\",\n        \"telefono\": \"666777888\",\n        \"email\": \"laura.martin@gmail.com\",\n        \"observacionesClinicas\": \"Cita inicial + evaluación para bono de 5 sesiones.\"\n    },\n    {\n        \"id\": 20,\n        \"nombre\": \"Jorge\",\n        \"apellidos\": \"Gomez\",\n        \"telefono\": \"666111222\",\n        \"email\": \"jorge.gonzalez@gmail.com\",\n        \"observacionesClinicas\": \"Lumbalgia aguda. Primera sesión.\"\n    },\n    {\n        \"id\": 21,\n        \"nombre\": \"Daniel\",\n        \"apellidos\": \"Carrilo\",\n        \"telefono\": \"555666777\",\n        \"email\": \"daniel.carrillo@yahoo.es\",\n        \"observacionesClinicas\": \"Rehabilitación postoperatoria de rodilla.\"\n    },\n    {\n        \"id\": 22,\n        \"nombre\": \"Joaquin\",\n        \"apellidos\": \"Recio\",\n        \"telefono\": \"444777889\",\n        \"email\": \"joaquin.recio@gmail.com\",\n        \"observacionesClinicas\": \"Molestias cervicales tras accidente leve.\"\n    }\n]"
+						}
+					]
+				},
+				{
+					"name": "Obtener paciente por ID",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/pacientes/{{pacienteId}}",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"pacientes",
+								"{{pacienteId}}"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Obtener paciente por ID",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8080/api/pacientes/{{pacienteId}}",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"pacientes",
+										"{{pacienteId}}"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Vary",
+									"value": "Origin"
+								},
+								{
+									"key": "Vary",
+									"value": "Access-Control-Request-Method"
+								},
+								{
+									"key": "Vary",
+									"value": "Access-Control-Request-Headers"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-XSS-Protection",
+									"value": "0"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, no-store, max-age=0, must-revalidate"
+								},
+								{
+									"key": "Pragma",
+									"value": "no-cache"
+								},
+								{
+									"key": "Expires",
+									"value": "0"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 10 Jun 2025 05:27:39 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"id\": 24,\n    \"nombre\": \"Irene\",\n    \"apellidos\": \"Méndez\",\n    \"telefono\": \"678123456\",\n    \"email\": \"irene.mendez@gmail.com\",\n    \"observacionesClinicas\": \"Lesión en hombro derecho por sobreesfuerzo\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Registrar nuevo paciente",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"nombre\": \"María\",\r\n  \"apellidos\": \"Herrera\",\r\n  \"telefono\": \"690112233\",\r\n  \"email\": \"maria.herrera@gmail.com\",\r\n  \"observacionesClinicas\": \"Paciente con esguince de tobillo en fase de rehabilitación\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/pacientes",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"pacientes"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Registrar nuevo paciente",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"nombre\": \"Carlos\",\r\n  \"apellidos\": \"Navarro\",\r\n  \"telefono\": \"611998877\",\r\n  \"email\": \"carlos.navarro@gmail.com\",\r\n  \"observacionesClinicas\": \"Dolor lumbar crónico, derivado por su médico de cabecera\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/api/pacientes",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"pacientes"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Vary",
+									"value": "Origin"
+								},
+								{
+									"key": "Vary",
+									"value": "Access-Control-Request-Method"
+								},
+								{
+									"key": "Vary",
+									"value": "Access-Control-Request-Headers"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-XSS-Protection",
+									"value": "0"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, no-store, max-age=0, must-revalidate"
+								},
+								{
+									"key": "Pragma",
+									"value": "no-cache"
+								},
+								{
+									"key": "Expires",
+									"value": "0"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 10 Jun 2025 05:28:29 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"id\": 25,\n    \"nombre\": \"Carlos\",\n    \"apellidos\": \"Navarro\",\n    \"telefono\": \"611998877\",\n    \"email\": \"carlos.navarro@gmail.com\",\n    \"observacionesClinicas\": \"Dolor lumbar crónico, derivado por su médico de cabecera\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Modificar datos paciente",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"nombre\": \"Elena\",\r\n  \"apellidos\": \"Ruiz\",\r\n  \"telefono\": \"691223344\",\r\n  \"email\": \"elena.ruiz@hotmail.com\",\r\n  \"observacionesClinicas\": \"Movilización de tobillo y reeducación de marcha\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/pacientes/{{pacienteId}}",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"pacientes",
+								"{{pacienteId}}"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Modificar datos paciente",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"nombre\": \"Elena\",\r\n  \"apellidos\": \"Ruiz\",\r\n  \"telefono\": \"691223344\",\r\n  \"email\": \"elena.ruiz@hotmail.com\",\r\n  \"observacionesClinicas\": \"Movilización de tobillo y reeducación de marcha\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/api/pacientes/{{pacienteId}}",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"pacientes",
+										"{{pacienteId}}"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Vary",
+									"value": "Origin"
+								},
+								{
+									"key": "Vary",
+									"value": "Access-Control-Request-Method"
+								},
+								{
+									"key": "Vary",
+									"value": "Access-Control-Request-Headers"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-XSS-Protection",
+									"value": "0"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, no-store, max-age=0, must-revalidate"
+								},
+								{
+									"key": "Pragma",
+									"value": "no-cache"
+								},
+								{
+									"key": "Expires",
+									"value": "0"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 10 Jun 2025 06:40:30 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"id\": 12,\n    \"nombre\": \"Elena\",\n    \"apellidos\": \"Ruiz\",\n    \"telefono\": \"691223344\",\n    \"email\": \"elena.ruiz@hotmail.com\",\n    \"observacionesClinicas\": \"Movilización de tobillo y reeducación de marcha\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Eliminar paciente",
 					"event": [
 						{
 							"listen": "test",
@@ -207,7 +1599,7 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:8080/api/citas/2",
+							"raw": "http://localhost:8080/api/pacientes/25",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -215,35 +1607,111 @@
 							"port": "8080",
 							"path": [
 								"api",
-								"citas",
-								"2"
+								"pacientes",
+								"25"
 							]
 						}
 					},
-					"response": []
-				},
-				{
-					"name": "Ejemplo-Crear nueva cita",
-					"event": [
+					"response": [
 						{
-							"listen": "test",
-							"script": {
-								"exec": [
-									"pm.test(\"Status code is 200\", function () {\r",
-									"    pm.response.to.have.status(200);\r",
-									"});"
-								],
-								"type": "text/javascript",
-								"packages": {}
-							}
+							"name": "Eliminar paciente",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/api/pacientes/25",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"pacientes",
+										"25"
+									]
+								}
+							},
+							"status": "No Content",
+							"code": 204,
+							"_postman_previewlanguage": "plain",
+							"header": [
+								{
+									"key": "Vary",
+									"value": "Origin"
+								},
+								{
+									"key": "Vary",
+									"value": "Access-Control-Request-Method"
+								},
+								{
+									"key": "Vary",
+									"value": "Access-Control-Request-Headers"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-XSS-Protection",
+									"value": "0"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, no-store, max-age=0, must-revalidate"
+								},
+								{
+									"key": "Pragma",
+									"value": "no-cache"
+								},
+								{
+									"key": "Expires",
+									"value": "0"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 10 Jun 2025 06:42:20 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": null
 						}
-					],
+					]
+				}
+			]
+		},
+		{
+			"name": "Autenticación",
+			"item": [
+				{
+					"name": "Login",
 					"request": {
 						"method": "POST",
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n  \"nombrePaciente\": \"Lucía Torres\",\r\n  \"fechaCita\": \"2025-04-05T11:00:00\",\r\n  \"motivo\": \"Sesión de fisioterapia\",\r\n  \"telefono\": \"612345678\",\r\n  \"email\": \"lucia@example.com\",\r\n  \"observaciones\": \"Paciente habitual\"\r\n}",
+							"raw": "{\r\n  \"nombreUsuario\": \"sonia.martinez\",\r\n  \"contrasena\": \"1234567\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -251,7 +1719,7 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:8080/api/citas",
+							"raw": "http://localhost:8080/api/auth/login",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -259,17 +1727,202 @@
 							"port": "8080",
 							"path": [
 								"api",
-								"citas"
+								"auth",
+								"login"
 							]
 						}
 					},
-					"response": []
+					"response": [
+						{
+							"name": "Login-KO",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"nombreUsuario\": \"sonia.martinez\",\r\n  \"contrasena\": \"123456\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/api/auth/login",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"auth",
+										"login"
+									]
+								}
+							},
+							"status": "Unauthorized",
+							"code": 401,
+							"_postman_previewlanguage": "html",
+							"header": [
+								{
+									"key": "Vary",
+									"value": "Origin"
+								},
+								{
+									"key": "Vary",
+									"value": "Access-Control-Request-Method"
+								},
+								{
+									"key": "Vary",
+									"value": "Access-Control-Request-Headers"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-XSS-Protection",
+									"value": "0"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, no-store, max-age=0, must-revalidate"
+								},
+								{
+									"key": "Pragma",
+									"value": "no-cache"
+								},
+								{
+									"key": "Expires",
+									"value": "0"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Type",
+									"value": "text/html",
+									"name": "Content-Type",
+									"description": "",
+									"type": "text"
+								},
+								{
+									"key": "Content-Length",
+									"value": "24"
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 10 Jun 2025 06:50:36 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "Credenciales incorrectas"
+						},
+						{
+							"name": "Login-OK",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"nombreUsuario\": \"sonia.martinez\",\r\n  \"contrasena\": \"1234567\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/api/auth/login",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"auth",
+										"login"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "plain",
+							"header": [
+								{
+									"key": "Vary",
+									"value": "Origin"
+								},
+								{
+									"key": "Vary",
+									"value": "Access-Control-Request-Method"
+								},
+								{
+									"key": "Vary",
+									"value": "Access-Control-Request-Headers"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-XSS-Protection",
+									"value": "0"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, no-store, max-age=0, must-revalidate"
+								},
+								{
+									"key": "Pragma",
+									"value": "no-cache"
+								},
+								{
+									"key": "Expires",
+									"value": "0"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Type",
+									"value": "text/plain;charset=UTF-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "186"
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 10 Jun 2025 06:51:03 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJzb25pYS5tYXJ0aW5leiIsImlhdCI6MTc0OTUzODI2MywiZXhwIjoxNzQ5NjI0NjYzfQ.BpYqE28mqChbYVqDWnqjvgEaTfPoOCfthborZbFisTHh6ZZwabQ3Lnof107BwbeOw8qKvi_FF2Xid2811L6n2g"
+						}
+					]
 				}
 			]
-		},
-		{
-			"name": "Pacientes",
-			"item": []
 		}
 	]
 }

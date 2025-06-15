@@ -1,4 +1,5 @@
 
+<div class="contenedor-formulario">
 <h2>{{ esEdicion ? 'Modificar Cita':  'Registrar Nueva Cita'}}</h2>
 
 <form #formCita="ngForm" (ngSubmit)="guardarCita()">
@@ -26,13 +27,13 @@
     </div>
 
     <label>Teléfono:</label>
-    <input type="text" [(ngModel)]="cita.telefono" name="telefono" required #telefono="ngModel">
+    <input type="text" [(ngModel)]="cita.telefono" name="telefono" placeholder="Ej: 654745214" required #telefono="ngModel">
     <div *ngIf="telefono.invalid && telefono.touched" style="color:red;">
         El teléfono es obligatorio.
     </div>
 
     <label>Email:</label>
-    <input type="email" [(ngModel)]="cita.email" name="email" required #email="ngModel">
+    <input type="email" [(ngModel)]="cita.email" name="email" placeholder="Ej: paciente@email.com" required #email="ngModel">
     <div *ngIf="email.invalid && email.touched" style="color:red;">
         El email es obligatorio.
     </div>
@@ -45,3 +46,4 @@
         {{esEdicion ? 'Actualizar Cita': 'Guardar Cita'}}
     </button>
 </form> 
+</div>

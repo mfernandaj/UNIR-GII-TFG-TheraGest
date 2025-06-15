@@ -3,7 +3,6 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Paciente } from './paciente.service';
 
-
 export interface Cita  {
 
   id:number;
@@ -45,5 +44,21 @@ export class CitaService{
   cancelarCita(id: number): Observable<Cita>{
     return this.http.put<Cita>(`${this.apiUrl}/${id}/cancelar`,{});
   }
+
+  //obtener citas por id de paciente
+
+  obtenerCitasPorPaciente(pacienteId: number): Observable<Cita[]>{
+    return this.http.get<Cita[]>(`${this.apiUrl}/pacientes/${pacienteId}/citas`);
+
+  }
+
+  //para recibir notificaciones de citas
+obtenerCitasProximas(): Observable<Cita[]>{
+  return this.http.get<Cita[]>(`${this.apiUrl}/proximas`);
+}
+
+finalizarCita(id: number): Observable<any> {
+  return this.http.put(`${this.apiUrl}/citas/${id}/finalizar`, {});
+}
 
 }

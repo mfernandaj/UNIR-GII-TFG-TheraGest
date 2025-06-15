@@ -1,0 +1,24 @@
+<div class="dashboard-wrapper">
+    <div class="dashboard-container">
+        <div class="logo-centro">
+            <img src="assets/img/logo1.png" alt="Logo" class="logo-icon-dashboard" />
+        </div>
+        <div class="usuario-barra">
+            <span>Hola, {{ nombreUsuario }}</span>
+            <a class="cerrar-sesion" (click)="cerrarSesion()"> Cerrar sesión</a>
+        </div>
+
+        <h2>Bienvenid&#64; a TheraGest</h2>
+        <p>¿Qué deseas hacer hoy?</p>
+
+        <div class="card-container">
+            <a routerLink="/citas" class="card">📅 Ver citas</a>
+            <a routerLink="/nueva-cita" class="card">➕ Nueva Cita</a>
+            <a routerLink="/pacientes" class="card">🧍 Ver Pacientes</a>
+            <a routerLink="/nuevo-paciente" class="card">📝 Registrar Paciente</a>
+            <a routerLink="/citas-proximas" class="card">🔔 Ver Citas Próximas</a>
+
+        </div>
+
+    </div>
+</div>

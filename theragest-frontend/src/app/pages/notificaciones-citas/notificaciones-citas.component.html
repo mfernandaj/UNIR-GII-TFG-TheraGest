@@ -1,0 +1,19 @@
+<div *ngIf="citasProximas.length > 0" class="notificaciones">
+    <h3> 📅 Citas próximas (24h) </h3>
+    <ul>
+        <li *ngFor="let cita of citasProximas">
+            <strong>{{cita.paciente.nombre}} {{cita.paciente.apellidos}}</strong><br>
+            {{cita.fechaCita | date:'shortDate'}} -
+            {{cita.fechaCita | date:'shortTime'}}<br>
+            {{cita.motivo}}
+
+        </li>
+
+    </ul>
+
+</div>
+
+<div *ngIf="citasProximas.length === 0" class="sin-citas">
+    No hay citas programadas en las próximas 24 horas.
+
+</div>

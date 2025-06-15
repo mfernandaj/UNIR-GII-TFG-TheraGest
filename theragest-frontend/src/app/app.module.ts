@@ -10,6 +10,11 @@ import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { ListaPacientesComponent } from './pages/lista-pacientes/lista-pacientes.component';
 import { FormularioPacienteComponent } from './pages/formulario-paciente/formulario-paciente.component';
+import { LoginComponent } from './pages/login/login.component';
+import { DashboardComponent } from './pages/dashboard/dashboard.component';
+import { HistorialCitasComponent } from './pages/historial-citas/historial-citas.component';
+import { NotificacionesCitasComponent } from './pages/notificaciones-citas/notificaciones-citas.component';
+import { CitasProximasComponent } from './pages/citas-proximas/citas-proximas.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +23,12 @@ import { FormularioPacienteComponent } from './pages/formulario-paciente/formula
     FormularioCitaComponent,
     HomeComponent,
     ListaPacientesComponent,
-    FormularioPacienteComponent    
+    FormularioPacienteComponent,
+    LoginComponent,
+    DashboardComponent,
+    HistorialCitasComponent,
+    NotificacionesCitasComponent,
+    CitasProximasComponent    
   ],
   imports: [
     BrowserModule,
