@@ -38,12 +38,12 @@ Esta versión corresponde a la entrega del borrador final del TFG. Incluye todas
 
 ## 📁 Estructura del proyecto
 TFG-TheraGest/
-├── theragest-backend/       # Proyecto Spring Boot (API REST)
-│   └── src/main/...
-├── theragest-frontend/      # Aplicación Angular (interfaz de usuario)
-│   └── src/app/...
-├── theragest-postman/       # Colección de pruebas con Postman
-└── README.md      
+├── theragest-backend/ # Proyecto Spring Boot (API REST)
+│ └── src/main/...
+├── theragest-frontend/ # Aplicación Angular (interfaz de usuario)
+│ └── src/app/...
+├── theragest-postman/ # Colección de pruebas con Postman
+└── README.md    
 
 ## ✅ Funcionalidades actuales (Junio 2025)
 
