@@ -5,13 +5,15 @@
   <img src="./banner-theragest.png" alt="TheraGest banner" width="350"/>
 </p>
 
+
 <p align="center">
-[![estado](https://img.shields.io/badge/estado-Borrador%20final-blue)](#)
-[![Angular](https://img.shields.io/badge/frontend-Angular-DD0031?logo=angular)](./theragest-frontend)
-[![Spring Boot](https://img.shields.io/badge/backend-SpringBoot-6DB33F?logo=spring)](./theragest-backend)
-[![Postman](https://img.shields.io/badge/pruebas-Postman-FF6C37?logo=postman)](./theragest-postman)
-[![License](https://img.shields.io/badge/license-MIT-blue)](./LICENSE)
+  <a href="#"><img src="https://img.shields.io/badge/estado-Borrador%20final-blue" alt="estado" /></a>
+  <a href="./theragest-frontend"><img src="https://img.shields.io/badge/frontend-Angular-DD0031?logo=angular" alt="Angular" /></a>
+  <a href="./theragest-backend"><img src="https://img.shields.io/badge/backend-SpringBoot-6DB33F?logo=spring" alt="Spring Boot" /></a>
+  <a href="./theragest-postman"><img src="https://img.shields.io/badge/pruebas-Postman-FF6C37?logo=postman" alt="Postman" /></a>
+  <a href="./LICENSE"><img src="https://img.shields.io/badge/license-MIT-blue" alt="MIT License" /></a>
 </p>
+
 📌 Estado del proyecto
 🟡 Versión avanzada – Entrega de junio 2025
 Esta versión corresponde a la entrega del borrador final del TFG. Incluye todas las funcionalidades esenciales implementadas y validadas.
