@@ -47,15 +47,15 @@ TFG-TheraGest/
 
 ## ✅ Funcionalidades actuales (Junio 2025)
 
--Gestión de pacientes (CRUD)
--Registro, modificación, cancelación y finalización de citas
--Notificaciones de citas próximas (24h)
--Filtro de citas por diferentes criterios de búsqueda
--Consulta de historial clínico
--Validaciones en formularios
--Autenticación con JWT (inicio de sesión seguro)
--Arquitectura RESTful con integración frontend-backend
--Pruebas de API con Postman
+• Gestión de pacientes (CRUD)  
+• Registro, modificación, cancelación y finalización de citas  
+• Notificaciones de citas próximas (24h)  
+• Filtro de citas por diferentes criterios de búsqueda  
+• Consulta de historial clínico  
+• Validaciones en formularios  
+• Autenticación con JWT (inicio de sesión seguro)  
+• Arquitectura RESTful con integración frontend-backend  
+• Pruebas de API con Postman
 
 ## 🧑‍💻 Autoría
 
