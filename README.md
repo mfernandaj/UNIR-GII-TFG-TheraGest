@@ -1,6 +1,8 @@
 # TheraGest
 
 **TheraGest** es una aplicación web para la gestión de citas en fisioterapia, desarrollada como parte del Trabajo de Fin de Grado en Ingeniería Informática por Fernanda Jiménez, estudiante de la Universidad Internacional de La Rioja (UNIR).
+![image](https://github.com/user-attachments/assets/89b22a86-b30b-400c-b70d-44b93bbc2355)
+
 
 [![estado](https://img.shields.io/badge/estado-Borrador%20final-blue)](#)
 [![Angular](https://img.shields.io/badge/frontend-Angular-DD0031?logo=angular)](./theragest-frontend)
@@ -39,7 +41,7 @@ TFG-TheraGest/
 ├── theragest-postman/       # Colección de pruebas con Postman
 └── README.md      
 
-## ✅ Funcionalidades actuales (mayo 2025)
+## ✅ Funcionalidades actuales (Junio 2025)
 
 -Gestión de pacientes (CRUD)
 -Registro, modificación, cancelación y finalización de citas
