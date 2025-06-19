@@ -1,7 +1,9 @@
 # TheraGest
 
 **TheraGest** es una aplicación web para la gestión de citas en fisioterapia, desarrollada como parte del Trabajo de Fin de Grado en Ingeniería Informática por Fernanda Jiménez, estudiante de la Universidad Internacional de La Rioja (UNIR).
-![image](https://github.com/user-attachments/assets/89b22a86-b30b-400c-b70d-44b93bbc2355)
+<p align="center">
+  <img src="./banner-theragest.png" alt="TheraGest banner" width="600"/>
+</p>
 
 
 [![estado](https://img.shields.io/badge/estado-Borrador%20final-blue)](#)
