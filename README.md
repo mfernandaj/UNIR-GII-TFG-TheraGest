@@ -1,45 +1,63 @@
 # TheraGest
 
 **TheraGest** es una aplicación web para la gestión de citas en fisioterapia, desarrollada como parte del Trabajo de Fin de Grado en Ingeniería Informática por Fernanda Jiménez, estudiante de la Universidad Internacional de La Rioja (UNIR).
+<p align="center">
+  <img src="./banner-theragest.png" alt="TheraGest banner" width="350"/>
+</p>
 
-## ⚠️ Estado del proyecto
 
-🚧 **Proyecto en desarrollo**  
-Esta versión corresponde al avance entregado en el borrador intermedio (mayo de 2025).  
-Incluye funcionalidades implementadas hasta la fecha, con prioridad en las operaciones principales del sistema.  
-El desarrollo continuará en las siguientes semanas para completar la autenticación, mejoras visuales y pruebas.
+<p align="center">
+  <a href="#"><img src="https://img.shields.io/badge/estado-Borrador%20final-blue" alt="estado" /></a>
+  <a href="./theragest-frontend"><img src="https://img.shields.io/badge/frontend-Angular-DD0031?logo=angular" alt="Angular" /></a>
+  <a href="./theragest-backend"><img src="https://img.shields.io/badge/backend-SpringBoot-6DB33F?logo=spring" alt="Spring Boot" /></a>
+  <a href="./theragest-postman"><img src="https://img.shields.io/badge/pruebas-Postman-FF6C37?logo=postman" alt="Postman" /></a>
+  <a href="./LICENSE"><img src="https://img.shields.io/badge/license-MIT-blue" alt="MIT License" /></a>
+</p>
+
+📌 Estado del proyecto
+🟡 Versión avanzada – Entrega de junio 2025
+Esta versión corresponde a la entrega del borrador final del TFG. Incluye todas las funcionalidades esenciales implementadas y validadas.
 
 ## 🚀 Tecnologías utilizadas
 
 ### Backend
 - Spring Boot
 - Spring Data JPA
-- MySQL
 - Hibernate
+- MySQL
 - JWT (JSON Web Tokens)
-- Maven
+- Apache Maven
 
 ### Frontend
 - Angular
+- HTML/CSS
+- TypeScript
+
+### Herramientas adicionales
+- Postman(colección de pruebas de API)
 
 ## 📁 Estructura del proyecto
+```
 TFG-TheraGest/
-├── backend/ # Código del servidor Spring Boot
-│ ├── src/main/java
-│ └── src/main/resources
-├── frontend/ # Código del cliente Angular
-│ ├── src/app
-│ └── angular.json
+├── theragest-backend/ # Proyecto Spring Boot (API REST)
+│ └── src/main/...
+├── theragest-frontend/ # Aplicación Angular (interfaz de usuario)
+│ └── src/app/...
+├── theragest-postman/ # Colección de pruebas con Postman
+└── README.md
+```
 
-## ✅ Funcionalidades actuales (mayo 2025)
+## ✅ Funcionalidades actuales (Junio 2025)
 
-- CRUD de pacientes
-- Registro y gestión de citas
-- Filtrado de citas por fecha
-- Historial de citas
-- Validaciones en formularios
-- Arquitectura REST
-- Autenticación básica en backend (en progreso)
+• Gestión de pacientes (CRUD)  
+• Registro, modificación, cancelación y finalización de citas  
+• Notificaciones de citas próximas (24h)  
+• Filtro de citas por diferentes criterios de búsqueda  
+• Consulta de historial clínico  
+• Validaciones en formularios  
+• Autenticación con JWT (inicio de sesión seguro)  
+• Arquitectura RESTful con integración frontend-backend  
+• Pruebas de API con Postman
 
 ## 🧑‍💻 Autoría
 
