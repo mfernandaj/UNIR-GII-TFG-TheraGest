@@ -58,7 +58,7 @@ obtenerCitasProximas(): Observable<Cita[]>{
 }
 
 finalizarCita(id: number): Observable<any> {
-  return this.http.put(`${this.apiUrl}/citas/${id}/finalizar`, {});
+  return this.http.put(`${this.apiUrl}/${id}/finalizar`, {});
 }
 
 }

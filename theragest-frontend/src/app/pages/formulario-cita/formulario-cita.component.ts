@@ -60,6 +60,17 @@ export class FormularioCitaComponent implements OnInit {
     }
   }
 
+rellenarDatosPaciente(){
+  const pacienteSeleccionado = this.pacientes.find(p=>p.id ==this.cita.paciente.id);
+  if(pacienteSeleccionado){
+    this.cita.telefono=pacienteSeleccionado.telefono;
+    this.cita.email=pacienteSeleccionado.email
+    this.cita.motivo="Dolor localizado/revisión";
+
+  }
+}
+
+
   private crearCita(): void {
     this.citaService.crearCita(this.cita).subscribe({
       next: () => {
@@ -181,4 +192,7 @@ obtenerPacientes(): void {
     error: (err) => console.error("Error al cargar pacientes", err)
   });
 }
+
+
+
 }

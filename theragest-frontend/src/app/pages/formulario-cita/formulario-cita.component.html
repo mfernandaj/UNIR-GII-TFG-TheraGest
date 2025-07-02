@@ -5,7 +5,7 @@
 <form #formCita="ngForm" (ngSubmit)="guardarCita()">
 
     <label>Paciente:</label>
-    <select [(ngModel)]="cita.paciente.id" name="paciente" required #paciente="ngModel">
+    <select [(ngModel)]="cita.paciente.id" name="paciente" required #paciente="ngModel" (change)="rellenarDatosPaciente()">
         <option *ngFor="let paciente of pacientes" [value]="paciente.id">
             {{ paciente.nombre }} {{ paciente.apellidos }}
         </option>

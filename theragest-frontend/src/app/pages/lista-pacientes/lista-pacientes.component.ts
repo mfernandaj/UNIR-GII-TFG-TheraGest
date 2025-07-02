@@ -107,5 +107,9 @@ export class ListaPacientesComponent implements OnInit {
     return Math.ceil(this.pacientesFiltrados.length / this.itemsPage);
   }
 
+  //Botón limpiar
+  limpiar(): void {
+    this.terminoBusqueda='';
+  }
 
 }

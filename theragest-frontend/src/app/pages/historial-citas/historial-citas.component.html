@@ -2,10 +2,15 @@
     <h2 class="titulo-panel">Historial de Citas del Paciente</h2>
   
     <div class="lista-container">
+      <p class="paciente-nombre">
+        <i class="bi bi-person-fill"></i>
+        👤 Mostrando historial de citas de: {{ pacienteNombreCompleto }}
+      </p>
       <div *ngIf="citas && citas.length === 0" class="mensaje-vacio">
         <p>Este paciente no tiene citas registradas.</p>
       </div>
   
+     
       <table class="tabla" *ngIf="citas.length > 0">
         <thead>
           <tr>
