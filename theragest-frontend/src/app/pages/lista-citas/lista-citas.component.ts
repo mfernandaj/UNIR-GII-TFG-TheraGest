@@ -31,6 +31,9 @@ export class ListaCitasComponent implements OnInit {
     this.obtenerCitas();
   }
 
+ 
+
+
   obtenerCitas(): void {
     this.citaService.obtenerCitas().subscribe({
       next: (data) => this.citas = data,

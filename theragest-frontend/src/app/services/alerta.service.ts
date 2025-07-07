@@ -59,5 +59,30 @@ export class AlertaService {
     }).then(result => result.isConfirmed);
   }
 
+  confirmarCerrarSesion(): Promise<boolean> {
+    return Swal.fire({
+      title: '¿Cerrar sesión?',
+      text: '¿Deseas salir de tu cuenta?',
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#48b47e',
+      cancelButtonColor: '#6c757d',
+      confirmButtonText: 'Salir',
+      cancelButtonText: 'Cancelar',  
+      reverseButtons: true 
+      
+    }).then(result => result.isConfirmed);
+  }
+
+  mostrarMensajeDespedida(): Promise<void> {
+    return Swal.fire({
+      title: '¡Gracias por usar TheraGest!',
+      text: 'Hasta pronto',
+      icon: 'success',
+      showConfirmButton: false,
+      timer: 5000
+    }).then();
+  }
+
 }
 

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../../services/auth.service';
 import { Router } from '@angular/router';
+import { AlertaService } from '../../services/alerta.service';
 
 @Component({
   selector: 'app-dashboard',
@@ -9,7 +10,8 @@ import { Router } from '@angular/router';
 })
 export class DashboardComponent implements OnInit{
   nombreUsuario: string | null= '';
-  constructor(private authService: AuthService, private router: Router){
+
+  constructor(private authService: AuthService, private router: Router, private alertaService: AlertaService ){
 
   }
 
@@ -19,8 +21,14 @@ export class DashboardComponent implements OnInit{
   }
 
   cerrarSesion():void{
-    this.authService.cerrarSesion();
-    this.router.navigate(['/login']);
+    this.alertaService.confirmarCerrarSesion().then(confirmado => {
+    if (confirmado) {
+      this.authService.cerrarSesion();
+      this.alertaService.mostrarMensajeDespedida().then(() => {
+        this.router.navigate(['/login']);
+      });
+    }
+  });
   }
   
 

@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from './services/auth.service';
 import { Router } from '@angular/router';
+import Swal from 'sweetalert2';
+import { AlertaService } from './services/alerta.service';
 
 @Component({
   selector: 'app-root',
@@ -15,7 +17,7 @@ export class AppComponent implements OnInit{
   
   
 
-  constructor(private authService: AuthService, private router: Router) { 
+  constructor(private authService: AuthService, private router: Router, private alertaService: AlertaService) { 
     this.router.events.subscribe(()=>{
     const rutaActual = this.router.url;
     this.autenticado=this.authService.estaAutenticado();
@@ -33,9 +35,14 @@ export class AppComponent implements OnInit{
   }
 
   cerrarSesion(): void {
-    this.authService.cerrarSesion();
-    this.router.navigate(['/login']);
-    //this.autenticado=false;
+    this.alertaService.confirmarCerrarSesion().then(confirmado => {
+    if (confirmado) {
+      this.authService.cerrarSesion();
+      this.alertaService.mostrarMensajeDespedida().then(() => {
+        this.router.navigate(['/login']);
+      });
+    }
+  });
   }
   
 
