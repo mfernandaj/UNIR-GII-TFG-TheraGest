@@ -30,7 +30,7 @@ export class ListaPacientesComponent implements OnInit {
       next: (data) =>{
         //ordenar por ID descendente
         this.pacientes = data.sort((a,b)=>b.id - a.id);
-        this.pacientesFiltrados.splice(0,this.pacientesFiltrados.length, ...this.pacientes);
+        //this.pacientesFiltrados.splice(0,this.pacientesFiltrados.length, ...this.pacientes);
       },
       error: (err) => {console.error('Error al obtener pacientes', err);}
     });

@@ -14,9 +14,10 @@ export class CitasProximasComponent implements OnInit{
     }
   ngOnInit(): void {
     this.citaService.obtenerCitasProximas().subscribe({
+      next: (data) => {
+                this.citasProximas = data.sort((a, b)=>new Date(a.fechaCita).getTime()-new Date(b.fechaCita).getTime());
 
-      next: (data) => this.citasProximas = data,
-      error: (err) => console.error('Error al obtener citas próximas', err)
+      }, error: (err) => console.error('Error al obtener citas próximas', err)
     });
   }
 
