@@ -42,7 +42,8 @@ export class AlertaService {
       confirmButtonText: textoConfirmar,
       cancelButtonText: textoCancelar,
       confirmButtonColor: '#48b47e',
-      cancelButtonColor: '#6c757d'
+      cancelButtonColor: '#6c757d',
+      reverseButtons: true
     }).then(resultado => resultado.isConfirmed);
   }
 
@@ -55,7 +56,8 @@ export class AlertaService {
       confirmButtonColor: '#48b47e',
       cancelButtonColor: '#6c757d',
       confirmButtonText: 'Confirmar',
-      cancelButtonText: 'Descartar'
+      cancelButtonText: 'Descartar',
+      reverseButtons: true 
     }).then(result => result.isConfirmed);
   }
 
